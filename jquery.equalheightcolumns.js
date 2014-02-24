@@ -63,7 +63,7 @@
             resizeHeight();
 
             // Call on resize. Opera debounces their resize by default. 
-            if(updateOnResize)
+            if(options.updateOnResize)
             	$(window).resize(resizeHeight);
             
             // Also check if any images are present and recalculate when they load
