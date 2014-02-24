@@ -18,6 +18,7 @@
                 maxWidth: 99999,            // Won't resize unless window is narrower than this value
                 setHeightOn: 'min-height',   // The CSS attribute on which the equal height is set. Usually height or min-height
                 defaultVal: 0               // Default value (for resetting columns before calculation of the maximum height) for the CSS attribute defined via setHeightOn, e.g. 'auto' for 'height' or 0 for 'minHeight'
+            	updateOnResize: true	    // whether to recalculate the column heights in case of window resizing 
             };
 
             var $this   = $(this); // store the object
@@ -62,7 +63,8 @@
             resizeHeight();
 
             // Call on resize. Opera debounces their resize by default. 
-            $(window).resize(resizeHeight);
+            if(updateOnResize)
+            	$(window).resize(resizeHeight);
             
             // Also check if any images are present and recalculate when they load
             // there might be an optimization opportunity here
